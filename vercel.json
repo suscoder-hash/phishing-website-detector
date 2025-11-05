@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ],
+  "env": {
+    "VIRUSTOTAL_API_KEY": "@virustotal_api_key",
+    "URLSCAN_API_KEY": "@urlscan_api_key",
+    "GOOGLE_SAFE_BROWSING_KEY": "@google_safe_browsing_key"
+  }
+}
